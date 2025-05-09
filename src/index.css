@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a192f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #233554;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64ffda;
+}
+
+/* Custom animations */
+@keyframes scrollDown {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+.animate-scrollDown {
+  animation: scrollDown 1.5s infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base styles */
+body {
+  @apply bg-[#0a192f] text-[#8892b0] font-sans;
+}
+
+/* Focus styles */
+*:focus-visible {
+  @apply outline-none ring-2 ring-[#64ffda] ring-opacity-60;
+}
+
+/* Section transitions */
+section {
+  @apply transition-all duration-300;
+}
+
+/* Make the fixed navbar only for larger screens */
+@media screen and (max-width: 640px) {
+  #home {
+    padding-top: 2rem;
+  }
+}
+
+/* Prevent content flash during page load */
+body {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Ensure images are not draggable */
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+/* Contact form input placeholders */
+input::placeholder, textarea::placeholder {
+  @apply text-[#8892b0]/60;
+}
