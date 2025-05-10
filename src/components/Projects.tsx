@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ExternalLink, Github, Folder } from 'lucide-react';
+import firstPorjectEcommercePic from "../assests/ecommerce.jpg"
+import todoPic from "../assests/todo.jpeg"
 
 interface ProjectType {
   id: number;
@@ -18,68 +20,25 @@ const projects: ProjectType[] = [
     id: 1,
     title: "E-Commerce Platform",
     description: "A full-featured e-commerce platform with product management, cart functionality, payment processing, and user authentication.",
-    image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    image: firstPorjectEcommercePic,
     technologies: ["React", "Node.js", "Express", "MongoDB", "Redux", "JWT"],
-    github: "https://github.com/satenderkumar/ecommerce",
-    live: "https://ecommerce-demo.example.com",
+    github: "https://github.com/satender9586/eco-frontend",
+    live: "https://easyshopwaala.netlify.app/",
     featured: true,
     category: "fullstack"
   },
   {
     id: 2,
     title: "Task Management System",
-    description: "A collaborative task management application with real-time updates, team workspaces, and progress tracking.",
-    image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    technologies: ["React", "Node.js", "Socket.io", "MongoDB", "Express"],
-    github: "https://github.com/satenderkumar/taskmanager",
-    live: "https://taskmanager-demo.example.com",
+    description: "A collaborative task management application with real-time updates, team workspaces",
+    image: todoPic,
+    technologies: ["React", "Node.js", "MongoDB", "Express","React-Query","Rest Api"],
+    github: "https://github.com/satender9586/todo-frontend",
+    live: "https://nostifyes.netlify.app/",
     featured: true,
     category: "fullstack"
   },
-  {
-    id: 3,
-    title: "Weather Dashboard",
-    description: "A weather application that provides real-time weather information, forecasts, and historical data visualization.",
-    image: "https://images.pexels.com/photos/531756/pexels-photo-531756.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    technologies: ["React", "Chart.js", "Weather API", "CSS"],
-    github: "https://github.com/satenderkumar/weather-app",
-    live: "https://weather-demo.example.com",
-    featured: false,
-    category: "frontend"
-  },
-  {
-    id: 4,
-    title: "Blog CMS",
-    description: "A content management system for blogs with markdown support, categories, and user management.",
-    image: "https://images.pexels.com/photos/1591056/pexels-photo-1591056.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    technologies: ["MongoDB", "Express", "React", "Node.js", "AWS S3"],
-    github: "https://github.com/satenderkumar/blog-cms",
-    live: "https://blog-cms-demo.example.com",
-    featured: false,
-    category: "fullstack"
-  },
-  {
-    id: 5,
-    title: "Restaurant Booking System",
-    description: "An online reservation system for restaurants with table management and email notifications.",
-    image: "https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    technologies: ["Node.js", "Express", "MongoDB", "SendGrid"],
-    github: "https://github.com/satenderkumar/restaurant-api",
-    live: "https://restaurant-booking.example.com",
-    featured: false,
-    category: "backend"
-  },
-  {
-    id: 6,
-    title: "Portfolio Template",
-    description: "A customizable portfolio template for developers with modular sections and theme options.",
-    image: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    technologies: ["React", "Tailwind CSS", "Framer Motion"],
-    github: "https://github.com/satenderkumar/portfolio-template",
-    live: "https://portfolio-template-demo.example.com",
-    featured: false,
-    category: "frontend"
-  }
+
 ];
 
 const Projects: React.FC = () => {

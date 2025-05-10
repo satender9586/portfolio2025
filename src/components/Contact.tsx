@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 interface FormData {
   name: string;
@@ -63,30 +64,56 @@ const Contact: React.FC = () => {
     }
   };
   
+
+
+
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+  
     if (validateForm()) {
       setIsSubmitting(true);
-      
-      // Simulate form submission
-      setTimeout(() => {
+  
+     
+      const templateParams = {
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+      };
+  
+     
+      emailjs.send(
+        'service_qg9k919',   // Replace with your actual service ID
+        'template_of50vuj',  // Replace with your actual template ID
+        templateParams,
+        '6MDFUpqKmJTavE-g7'      // Replace with your actual user ID
+      )
+      .then((response) => {
+        console.log('Email sent successfully!', response.status, response.text);
         setIsSubmitting(false);
         setSubmitSuccess(true);
+  
+        
         setFormData({
           name: '',
           email: '',
           subject: '',
-          message: ''
+          message: '',
         });
-        
-        // Reset success message after 5 seconds
+  
+        // Hide success message after 5 seconds
         setTimeout(() => {
           setSubmitSuccess(false);
         }, 5000);
-      }, 1500);
+      })
+      .catch((err) => {
+        console.error('Failed to send email:', err);
+        setIsSubmitting(false);
+      });
     }
   };
+  
   
   return (
     <section id="contact" className="py-20 bg-[#0a192f]">
